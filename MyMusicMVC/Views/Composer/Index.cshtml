@@ -1,0 +1,22 @@
+﻿@model MyMusicMVC.ViewModels.ListComposerViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name of the Music</th>
+            <th>Artist</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var composer in Model.ListComposer)
+        {
+        <tr>
+            <td class="text-center">@composer.FirstName.</td>
+            <td class="text-center">@composer.LastName</td>
+        </tr>
+        }
+    </tbody>
+</table>

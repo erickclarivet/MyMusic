@@ -1,0 +1,35 @@
+﻿@model MusicViewModel
+
+@if (ViewBag.MessageError != null)
+{
+    <div class="text-danger">@ViewBag.MessageError</div>
+}
+
+<form asp-controller="Music" asp-action="AddMusic" method="post" class="col-12 form-horizontal" role="form">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="@Model.music.Name" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="@Model.music.Name" class="form-control" />
+            <span asp-validation-for="@Model.music.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.IdArtist" class="col-md-2 control-label"></label>
+        <div class="col-md-5"> 
+            <select asp-for="@Model.IdArtist" asp-items="@Model.ArtistList" class="form-group col-5 btn btn-group">
+                <option value="-1">Select category</option>
+            </select>
+            <span asp-validation-for="@Model.IdArtist" class="text-danger"></span>
+        </div>
+    </div>
+
+    <input style="display: none" value="@Model.ArtistList">
+    <div class="form-group">
+        <div class="col-md-5">
+            <input type="submit" class="btn btn-primary" value="Add Music"/>
+        </div>
+    </div>
+</form>
